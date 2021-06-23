@@ -23,4 +23,9 @@ public class MessagePublisher implements Subject {
             o.update(x,y);
         }
     }
+    public void notifyUpdate(Forecast x, WeatherStats y, UVIndex t, Wind r) {
+        for(Observer o: observers) {
+            o.update(x,y,t,r);
+        }
+    }
 }

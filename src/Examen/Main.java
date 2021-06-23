@@ -6,6 +6,8 @@ public class Main {
         CurrentConditions monday=new CurrentConditions(28,1034,86);
         CurrentConditions tuesday=new CurrentConditions(18,1000,94);
         CurrentConditions wednesday=new CurrentConditions(23,1012,89);
+        UVIndex uvIndex = new UVIndex();
+        Wind wind = new Wind();
         Forecast forecastM=new Forecast(monday);
         Forecast forecastMa=new Forecast(tuesday);
         Forecast forecastMie=new Forecast(wednesday);
@@ -16,8 +18,7 @@ public class Main {
         MessagePublisher p = new MessagePublisher();
 
         p.attach(dia1);
-
-        p.notifyUpdate(forecastM,z);   //s1 and s2 will receive the update
+        p.notifyUpdate(forecastM,z);
         p.attach(dia2);
         p.detach(dia1);
         p.notifyUpdate(forecastMa, z);
@@ -26,7 +27,17 @@ public class Main {
         p.notifyUpdate(forecastMie,z);
 
 
+        p.detach(dia3);
+        p.attach(dia1);
+        System.out.println("---------HIBRIDOS------------");
+        p.notifyUpdate(forecastM,z,uvIndex,wind);
+        p.detach(dia1);
+        p.attach(dia2);
+        p.notifyUpdate(forecastMa,z,uvIndex,wind);
+        System.out.println("------------------------------");
+
+
+
+
     }
-
-
 }

@@ -11,11 +11,20 @@ public class Dia1  implements Observer{
         clima=x.getClima();
         forecast=x;
         weatherStats=y;
-System.out.println("Condiciones del Lunes: ");
-System.out.println(clima.climaBase());
-        System.out.println("Pronostico: ");
-        forecast.pronosticoSimple();
-        System.out.println("Estadisticas: ");
-weatherStats.calculoEstadistica(clima.getHumedad(), clima.getTemperatura());
+        System.out.println("Condiciones del Lunes: ");
+        System.out.println(clima.climaBase());
+       forecast.pronosticoSimple();
+       weatherStats.calculoEstadistica(clima.getHumedad(), clima.getTemperatura());
+    }
+
+    @Override
+    public void update(Forecast x, WeatherStats y, UVIndex u, Wind w) {
+        clima=x.getClima();
+        forecast=x;
+        weatherStats=y;
+        System.out.println("Condiciones del Lunes: ");
+        System.out.println(clima.climaBase());
+        u.UVinfo(x,y);
+        w.windVelocity(x,y);
     }
 }
