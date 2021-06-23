@@ -1,25 +1,28 @@
 package Examen;
 
-public class Forecast extends ClimaDecorator {
+public class Forecast {
+CurrentConditions clima;
 
 
-
-  public Forecast(IClima iClima){ super(iClima); }
-
-  @Override
-  public void agregarElemento(){
-    super.agregarElemento();
-    System.out.println("Forecast: ");
-
+  public Forecast(CurrentConditions clima){
+    this.clima=clima;
   }
+  public CurrentConditions getClima(){
 
-  private void pronosticoSimple(){
+    return clima;
+}
+  public void pronosticoSimple(){
+    if(clima.getHumedad() > 90){
+      System.out.println("La probabilidad de lluvia es alta");
+    }else {
+      System.out.println("La probabilidad de lluvia es baja");
+    }
 
-    System.out.println("El dia " + "Lunes" + " tenemos el siguiente pronostico: ");
-    System.out.println("Temperatura: 28" );
-    System.out.println("Humedad: 31" );
-    System.out.println("Precion Brometrica: 41" + "\n");
-
+    if(clima.getTemperatura() > 20){
+      System.out.println("La probabilidad de que haga calor es alta");
+    }else{
+      System.out.println("La probabilidad de que haga frío es alta ");
+    }
   }
 
 }

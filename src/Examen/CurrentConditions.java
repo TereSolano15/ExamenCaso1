@@ -1,27 +1,47 @@
 package Examen;
 
-public class CurrentConditions extends ClimaDecorator {
+public class CurrentConditions {
 
+    private float temperatura;
+    private float presionBarometrica;
+    private float humedad;
 
-    public CurrentConditions(IClima iClima){ super(iClima); }
-
-    @Override
-    public void agregarElemento(){
-
-        super.agregarElemento();
-        System.out.println("Current Conditions: ");
-        this.currentConditions();
-
+    public float getTemperatura() {
+        return temperatura;
     }
 
-    private void currentConditions(){
-
-        System.out.println("Fecha: 2/03/23"  );
-        System.out.println("Temperatura: 28 grados");
-        System.out.println("Humedad: 31");
-        System.out.println("Precion Brometrica: 35" + "\n");
-
+    public void setTemperatura(float temperatura) {
+        this.temperatura = temperatura;
     }
 
+    public float getPresionBarometrica() {
+        return presionBarometrica;
+    }
+
+    public void setPresionBarometrica(float presionBarometrica) {
+        this.presionBarometrica = presionBarometrica;
+    }
+
+    public float getHumedad() {
+        return humedad;
+    }
+
+    public void setHumedad(float humedad) {
+        this.humedad = humedad;
+    }
+
+    public CurrentConditions(float temp, float presBar, float hum) {
+        temperatura = temp;
+        presionBarometrica = presBar;
+        humedad = hum;
+    }
+
+    public String climaBase(){
+StringBuilder mensaje = new StringBuilder("");
+       mensaje.append("Temperatura: " + temperatura + "\n");
+       mensaje.append("Precion Brometrica: " + presionBarometrica + "\n" );
+       mensaje.append("Humedad: " + humedad + "\n");
+return mensaje.toString();
+    }
 
 }

@@ -1,24 +1,26 @@
 package Examen;
 
-public class WeatherStats extends ClimaDecorator {
+public class WeatherStats {
 
 
-    public WeatherStats(IClima iClima){ super(iClima); }
+    public WeatherStats(){  }
 
 
-    @Override
-    public void agregarElemento(){
-        super.agregarElemento();
-        System.out.println("Estadisticas meteorologicas: ");
-        this.calculoEstadistica();
 
-    }
+    public void calculoEstadistica(float hum, float temp){
 
-    public void calculoEstadistica(){
-
-        System.out.println("Con una temperatura de " + 35 + " grados y una humedad con una temperatura de " + 41);
-        System.out.println("los siguientes dias podrian tener una temperatura de: " + 38);
-
+        if(hum > 90){
+            System.out.println("Nublado");
+        }else {
+            System.out.println("Parcialmente nublado");
+        }
+        if(temp > 20){
+            System.out.println("Temperatura Minima de 18 grados");
+            System.out.println("Temperatura Maxima de 32 grados");
+        }else {
+            System.out.println("Temperatura minima de 14 grados");
+            System.out.println("Temperatura maxima 22 ");
+        }
     }
 
 }
