@@ -2,33 +2,9 @@ package Examen;
 
 public class CurrentConditions {
 
-    private float temperatura;
-    private float presionBarometrica;
-    private float humedad;
-
-    public float getTemperatura() {
-        return temperatura;
-    }
-
-    public void setTemperatura(float temperatura) {
-        this.temperatura = temperatura;
-    }
-
-    public float getPresionBarometrica() {
-        return presionBarometrica;
-    }
-
-    public void setPresionBarometrica(float presionBarometrica) {
-        this.presionBarometrica = presionBarometrica;
-    }
-
-    public float getHumedad() {
-        return humedad;
-    }
-
-    public void setHumedad(float humedad) {
-        this.humedad = humedad;
-    }
+    private final float temperatura;
+    private final float presionBarometrica;
+    private final float humedad;
 
     public CurrentConditions(float temp, float presBar, float hum) {
         temperatura = temp;
@@ -36,11 +12,20 @@ public class CurrentConditions {
         humedad = hum;
     }
 
-    public String climaBase(){
-    StringBuilder mensaje = new StringBuilder("");
-       mensaje.append("Temperatura: " + temperatura + "\n");
-       mensaje.append("Precion Brometrica: " + presionBarometrica + "\n" );
-       mensaje.append("Humedad: " + humedad + "\n");
+    public float getTemperatura() {
+        return temperatura;
+    }
+
+    public float getHumedad() {
+        return humedad;
+    }
+
+
+    public String climaBase() {
+        StringBuilder mensaje = new StringBuilder();
+        mensaje.append("Temperatura: " + temperatura + "\n");
+        mensaje.append("Precion Brometrica: " + presionBarometrica + "\n");
+        mensaje.append("Humedad: " + humedad);
         return mensaje.toString();
     }
 

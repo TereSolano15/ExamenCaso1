@@ -1,30 +1,36 @@
 package Examen;
 
-public class Dia1  implements Observer{
+public class Dia1 implements Observer {
     CurrentConditions clima;
     Forecast forecast;
     WeatherStats weatherStats;
-    public Dia1(){
+
+    public Dia1() {
     }
+
     @Override
     public void update(Forecast x, WeatherStats y) {
-        clima=x.getClima();
-        forecast=x;
-        weatherStats=y;
-        System.out.println("Condiciones del Lunes: ");
+        clima = x.getClima();
+        forecast = x;
+        weatherStats = y;
+        System.out.println("\n===============================");
+        System.out.println("=====Condiciones del Lunes=====");
+        System.out.println("===============================");
         System.out.println(clima.climaBase());
-       forecast.pronosticoSimple();
-       weatherStats.calculoEstadistica(clima.getHumedad(), clima.getTemperatura());
+        forecast.pronosticoSimple();
+        weatherStats.calculoEstadistica(clima.getHumedad(), clima.getTemperatura());
     }
 
     @Override
     public void update(Forecast x, WeatherStats y, UVIndex u, Wind w) {
-        clima=x.getClima();
-        forecast=x;
-        weatherStats=y;
-        System.out.println("Condiciones del Lunes: ");
+        clima = x.getClima();
+        forecast = x;
+        weatherStats = y;
+        System.out.println("\n===============================");
+        System.out.println("=====Condiciones del Lunes=====");
+        System.out.println("===============================");
         System.out.println(clima.climaBase());
-        u.UVinfo(x,y);
-        w.windVelocity(x,y);
+        u.UVinfo(x, y);
+        w.windVelocity(x, y);
     }
 }
